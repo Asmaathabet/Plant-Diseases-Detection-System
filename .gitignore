@@ -1,0 +1,6 @@
+# Ignore the following directories and files
+# Data directories
+test
+train
+valid
+
