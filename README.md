@@ -361,140 +361,22 @@ Results showed strong performance across most classes with:
 
 ---
 
-# 🌐 Streamlit Deployment
-
-The trained CNN model was deployed using **Streamlit** to create a web application for plant disease prediction.
-
----
-
-# 📦 Install Streamlit
-
-```bash
-pip install streamlit
-```
-
-If you face issues with `starlette`:
-
-```bash
-pip install --upgrade streamlit starlette
-```
-
----
-
-# ▶️ Run the Streamlit App
-
-```bash
-streamlit run main.py
-```
-
-or
-
-```bash
-python -m streamlit run main.py
-```
-
----
-
-# 🖥️ Streamlit App Features
-
-The Streamlit application allows users to:
-
-- Upload plant leaf images
-- View uploaded image
-- Predict plant disease
-- Display prediction confidence
-- Show disease name instantly
-
----
-
-# 🧾 Example Streamlit Workflow
-
-## 1. Upload Image
-
-User uploads a plant leaf image.
-
----
-
-## 2. Image Preprocessing
-
-```python
-image = tf.keras.preprocessing.image.load_img(
-    image_path,
-    target_size=(128,128)
-)
-```
-
-Convert image to array:
-
-```python
-input_arr = tf.keras.preprocessing.image.img_to_array(image)
-```
-
-Convert single image to batch:
-
-```python
-input_arr = np.array([input_arr])
-```
-
----
-
-## 3. Model Prediction
-
-```python
-predictions = cnn.predict(input_arr)
-```
-
----
-
-## 4. Display Result
-
-```python
-model_prediction = class_name[result_index]
-
-plt.imshow(img)
-plt.title(f"Disease Name: {model_prediction}")
-plt.xticks([])
-plt.yticks([])
-plt.show()
-```
-
-Output:
-
-```bash
-Disease Name: Apple___Cedar_apple_rust
-```
-
----
-
-# 🛠️ TensorFlow + NumPy Compatibility Fix
-
-Inside the activated TensorFlow environment run EXACTLY:
-
-```bash
-pip uninstall tensorflow numpy -y
-```
-
-Then install compatible versions:
-
-```bash
-pip install numpy==1.23.5
-pip install tensorflow==2.10.0
-```
-
----
-
 # 📦 Requirements
 
 Create a `requirements.txt` file:
 
 ```txt
-tensorflow==2.10.0
-numpy==1.23.5
-opencv-python
-matplotlib
-scikit-learn
-streamlit
-pandas
+tensorflow==2.15.0
+keras==2.15.0
+streamlit==1.22.0
+numpy==1.26.4
+matplotlib==3.7.5
+opencv-python==4.10.0.84
+scikit-learn==1.5.1
+pandas==2.2.2
+pillow==10.4.0
+h5py==3.11.0
+protobuf==4.25.3
 ```
 
 ---
@@ -512,8 +394,8 @@ git clone https://github.com/your-username/Plant-Disease-Detection.git
 ## 2. Create Environment
 
 ```bash
-conda create -n tensorflow python=3.9
-conda activate tensorflow
+conda create -n plant python=3.10
+conda activate plant
 ```
 
 ---
@@ -535,38 +417,8 @@ jupyter notebook
 Open:
 
 ```bash
-train.ipynb
-```
-
-or
-
-```bash
 train1.ipynb
 ```
-
----
-
-## 5. Run Streamlit App
-
-```bash
-streamlit run main.py
-```
-
----
-
-# 📸 Application Output
-
-The application predicts diseases such as:
-
-- Apple Scab
-- Cedar Apple Rust
-- Tomato Early Blight
-- Powdery Mildew
-- Leaf Mold
-- Mosaic Virus
-- Healthy Leaves
-
-with high confidence.
 
 ---
 
@@ -588,13 +440,3 @@ Pull requests are welcome.
 For major changes, please open an issue first to discuss proposed updates.
 
 ---
-
-# 📜 License
-
-This project is licensed under the MIT License.
-
----
-
-# 👨‍💻 Author
-
-Plant Disease Detection System using Deep Learning and Streamlit Deployment.
